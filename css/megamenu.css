@@ -1,0 +1,56 @@
+.megamenu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.megamenu > li {
+  overflow: visible;
+}
+
+.megamenu__submenu {
+  opacity: 0;
+  pointer-events: none;
+  background-color: white;
+}
+
+.megamenu > li > .megamenu__submenu {
+  position: absolute;
+  top: calc(100% - 1.1rem);
+  left: 0;
+  width: 100%;
+  min-height: 50vh;
+  padding: 1rem 0;
+  box-shadow: 0px 17px 22px -13px rgba(0, 0, 0, 0.66);
+}
+
+.megamenu ul {
+  position: relative;
+  width: fit-content;
+  display: grid;
+  gap: 0.5rem;
+  padding-left: 1rem;
+}
+
+.megamenu__submenu:hover,
+.megamenu__submenu:focus-within,
+.megamenu button:hover + .megamenu__submenu,
+.megamenu button:focus + .megamenu__submenu {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.megamenu button:hover,
+.megamenu button:focus,
+.megamenu li:has(.megamenu__submenu:hover) > button,
+.megamenu li:focus-within > button,
+.megamenu a:hover,
+.megamenu a:focus {
+  text-decoration: underline;
+}
+
+.megamenu__submenu .megamenu__submenu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+}
